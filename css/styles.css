@@ -22,6 +22,7 @@
   --accent-bg-cl-90: rgba(33, 150, 243, 0.9);
   --btn-accent-bg-cl: #188ce8;  
   --work-bg-cl-80:  rgba(47, 48, 58, 0.8);
+  --backdrop-bg-cl-20:  rgba(0, 0, 0, 0.2);
 
   /* Border colors */
   --header-border-cl: #ececec;
@@ -595,7 +596,7 @@ color: var(--light-txt-cl);
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
               0px 4px 4px rgba(0, 0, 0, 0.06),
-              1px 4px 6px rgba(0, 0, 0, 0.16);
+              1px 4px 6px rgba(0, 0, 0, 0.16);           
 }
 
 .portfolio-subtitle {
@@ -655,6 +656,72 @@ line-height: calc(28 / 18);
 letter-spacing: 0.03em;
 
 color: var(--light-txt-cl);
+}
+
+/* Modal window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 100%;
+  background-color:  var(--backdrop-bg-cl-20);
+  opacity: 1;
+
+  transition: visibility 400ms ease-in-out, opacity 400ms ease-in-out; 
+  
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;  
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.7) rotate(90deg);
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--main-bg-cl);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+              0px 1px 1px rgba(0, 0, 0, 0.14), 
+              0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  opacity: 1;
+
+  transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  transition: transform 700ms ease-in-out, opacity 400ms ease-in-out;  
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 0;
+
+  background-color: var(--main-bg-cl);
+  cursor: pointer;
 }
 
 .visually-hidden {
