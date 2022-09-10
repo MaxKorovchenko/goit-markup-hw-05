@@ -32,7 +32,8 @@
   /* Others */
   --bg-gradient-cl-40: rgba(47, 48, 58, 0.4);
 
-  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-time: 250ms;
+  --animation-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base styles */
@@ -141,7 +142,7 @@ img {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
 
-  transition: color var(--animation);
+  transition: color var(--animation-time) var(--animation-function);
 }
 
 .current {  
@@ -177,7 +178,7 @@ img {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
 
-  transition: color var(--animation);
+  transition: color var(--animation-time) var(--animation-function);
 
   color: var(--secondary-txt-cl);
 }
@@ -246,7 +247,7 @@ img {
 
   cursor: pointer;
 
-  transition: background-color var(--animation);
+  transition: background-color var(--animation-time) var(--animation-function);
 }
 
 .hero-btn:hover,
@@ -401,7 +402,8 @@ color: var(--light-txt-cl);
 
   color: var(--team-icon-txt-cl);
 
-  transition: color var(--animation), background-color var(--animation);
+  transition: color var(--animation-time) var(--animation-function),
+              background-color var(--animation-time) var(--animation-function);
 }
 
 .socials-icon {
@@ -439,7 +441,8 @@ color: var(--light-txt-cl);
 
   color: var(--team-icon-txt-cl);
 
-  transition: color var(--animation), border-color var(--animation);
+  transition: color var(--animation-time) var(--animation-function), 
+              border-color var(--animation-time) var(--animation-function);
 }
 
 .clients-icon {
@@ -476,8 +479,9 @@ color: var(--light-txt-cl);
 
 .footer .logo {
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;  
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 20px;  
 }
 
 .footer-text {
@@ -499,7 +503,7 @@ color: var(--light-txt-cl);
 
   color: var(--light-txt-cl-60);
 
-  transition: color var(--animation);
+  transition: color var(--animation-time) var(--animation-function);
 }
 
 .footer-link:hover,
@@ -526,7 +530,7 @@ color: var(--light-txt-cl);
   color: var(--main-bg-cl);
   background-color: var(--light-txt-cl-10);
 
-  transition: background-color var(--animation);
+  transition: background-color var(--animation-time) var(--animation-function);
 }
 
 .footer-socials .socials-icon {
@@ -564,7 +568,9 @@ color: var(--light-txt-cl);
 
   cursor: pointer;
   
-  transition: color var(--animation), background-color var(--animation), box-shadow var(--animation);
+  transition: color var(--animation-time) var(--animation-function),
+              background-color var(--animation-time) var(--animation-function), 
+              box-shadow var(--animation-time) var(--animation-function);
 }
 
 .filter-btn:hover,
@@ -589,7 +595,7 @@ color: var(--light-txt-cl);
 .portfolio-link {
   display: inline-block;
 
-  transition: box-shadow var(--animation);
+  transition: box-shadow var(--animation-time) var(--animation-function);
 }
 
 .portfolio-link:hover,
@@ -640,13 +646,14 @@ color: var(--light-txt-cl);
   align-items:center;
   justify-content: center;
 
-  transform: translateY(100%);
-  transition: transform var(--animation);
+  transform: translateY(101%);
+  transition: transform var(--animation-time) var(--animation-function);
 
   background-color: var(--accent-bg-cl-90);  
 }
 
-.portfolio-item:hover .overlay {
+.portfolio-link:hover .overlay,
+.portfolio-link:focus .overlay {
   transform: translateY(0);
 }
 
